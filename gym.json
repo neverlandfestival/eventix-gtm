@@ -1,0 +1,1866 @@
+{
+    "exportFormatVersion": 2,
+    "exportTime": "2018-03-19 16:33:22",
+    "containerVersion": {
+        "path": "accounts/186990263/containers/6523248/versions/0",
+        "accountId": "186990263",
+        "containerId": "6523248",
+        "containerVersionId": "0",
+        "container": {
+            "path": "accounts/186990263/containers/6523248",
+            "accountId": "186990263",
+            "containerId": "6523248",
+            "name": "GTM Preset Import",
+            "publicId": "GTM-M6QZ8PL",
+            "usageContext": [
+                "WEB"
+            ],
+            "fingerprint": "1521477194372",
+            "tagManagerUrl": "https://tagmanager.google.com/#/container/accounts/186990263/containers/6523248/workspaces?apiLink=container"
+        },
+        "tag": [
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "tagId": "2",
+                "name": "AdWords-remarketing",
+                "type": "sp",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "conversionId",
+                        "value": "{{TicketShop - Adwords Conversion ID}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "customParamsFormat",
+                        "value": "NONE"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "conversionLabel",
+                        "value": "{{TicketShop - Adwords Conversion Label}}"
+                    }
+                ],
+                "fingerprint": "1489998886241",
+                "firingTriggerId": [
+                    "15"
+                ],
+                "blockingTriggerId": [
+                    "9"
+                ],
+                "tagFiringOption": "ONCE_PER_EVENT"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "tagId": "3",
+                "name": "Adwords Conversion Tracking",
+                "type": "awct",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "conversionValue",
+                        "value": "{{evtx value}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "conversionId",
+                        "value": "{{TicketShop - Adwords Conversion ID}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "currencyCode",
+                        "value": "{{evtx currency}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "conversionLabel",
+                        "value": "{{TicketShop - Adwords Conversion Label}}"
+                    }
+                ],
+                "fingerprint": "1489998886242",
+                "firingTriggerId": [
+                    "14"
+                ],
+                "blockingTriggerId": [
+                    "9"
+                ],
+                "tagFiringOption": "ONCE_PER_EVENT"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "tagId": "14",
+                "name": "Adwords Custom - multiple events in one shop",
+                "type": "html",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "html",
+                        "value": "<!-- Event snippet for Example conversion page -->\n<script>\n  function adwordsCustom(){\n  var EventGuidName = {{evtx label}};\n  EventGuidName = EventGuidName.toLowerCase();\n  var value = {{evtx conversionValue}}/100;\n  if(EventGuidName.includes(\"[NAME]\") === 1){\n    gtag('event', 'conversion', {'send_to': 'ADWORDS ID/CONVERSION LABEL',\n      'value': value,\n      'currency': 'EUR'\n    });\n  }\n  else if (EventGuidName.includes(\"[NAME]\") === 1){\n  \tgtag('event', 'conversion', {'send_to': 'ADWORDS ID/CONVERSION LABEL',\n      'value': value,\n      'currency': 'EUR'\n    });\n  }\n  else if (EventGuidName.includes(\"[NAME]\") === 1){\n  \tgtag('event', 'conversion', {'send_to': 'ADWORDS ID/CONVERSION LABEL',\n      'value': value,\n      'currency': 'EUR'\n    });\n  }\n  }\n  //adwordsCustom();\n</script>"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "supportDocumentWrite",
+                        "value": "false"
+                    }
+                ],
+                "fingerprint": "1519808361036",
+                "firingTriggerId": [
+                    "37"
+                ],
+                "tagFiringOption": "ONCE_PER_EVENT"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "tagId": "9",
+                "name": "Custom CSS",
+                "type": "html",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "html",
+                        "value": "<style>\n/*logo in de shop\n#shop-tickets{\n  \tpadding-top: 7%;\n    background-image: url(LOGO URL);\n    background-size: 50%;\n    background-repeat: no-repeat;\n    background-position: center top;\n}*/  \n\n  \n/*hide coupons; DEZE EVENTUEEL AANZETTEN\n.order-coupon{\n  display:none;\n}*/\n</style>"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "supportDocumentWrite",
+                        "value": "false"
+                    }
+                ],
+                "fingerprint": "1490874744548",
+                "firingTriggerId": [
+                    "13"
+                ],
+                "tagFiringOption": "ONCE_PER_EVENT"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "tagId": "13",
+                "name": "Facebook AddToCart",
+                "type": "html",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "html",
+                        "value": "<script>\nif (document.location.href.search('gtm-msr.appspot') == -1) {\n  \tvar price = {{addToCart_price}};\n  \tconsole.log(price);\n  \tvar product = {{addToCart_productName}};\n  \tconsole.log(product);\n\tfbq('track', 'AddToCart', {\n  \t\tProductName: product,\n  \t\t//ProductType: 'addToCart_eventName',\n  \t\tvalue: {{addToCart_price}},\n  \t\tcurrency: {{evtx currency}}\n\t});\n}\n</script>\n"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "supportDocumentWrite",
+                        "value": "false"
+                    }
+                ],
+                "fingerprint": "1519807180588",
+                "firingTriggerId": [
+                    "12"
+                ],
+                "tagFiringOption": "ONCE_PER_EVENT"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "tagId": "4",
+                "name": "Facebook Init",
+                "type": "html",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "html",
+                        "value": "<!-- Facebook Pixel Code -->\n<script>\n!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?\nn.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;\nn.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;\nt.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,\ndocument,'script','https://connect.facebook.net/en_US/fbevents.js');\nfbq('init', '{{TicketShop - Facebook Tracking Pixel ID}}');\n</script>\n<noscript><img height=\"1\" width=\"1\" style=\"display:none\"\nsrc=\"https://www.facebook.com/tr?id={{TicketShop - Facebook Tracking Pixel ID}}&ev=PageView&noscript=1\"\n/></noscript>\n<!-- DO NOT MODIFY -->\n<!-- End Facebook Pixel Code -->\n"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "supportDocumentWrite",
+                        "value": "true"
+                    }
+                ],
+                "fingerprint": "1493801826914",
+                "firingTriggerId": [
+                    "2147479553"
+                ],
+                "blockingTriggerId": [
+                    "9"
+                ],
+                "parentFolderId": "7",
+                "tagFiringOption": "ONCE_PER_EVENT"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "tagId": "5",
+                "name": "Facebook Purchase",
+                "type": "html",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "html",
+                        "value": "<script>\nif (document.location.href.search('gtm-msr.appspot') == -1) {\n  var EventGuidName = {{evtx label}};\n  EventGuidName = EventGuidName.split(\"|-|\");\n  console.log(EventGuidName[0]);\n  var value = {{evtx conversionValue}};\n  console.log(value);\n\tfbq('track', 'Purchase', {\n      //contents: [\n      //    {'id': 'ticketGuid/Name', 'quantity': 2, 'item_price': 5.99}, //for each part of the order\n      //    {'id': 'ticketGuid/Name', 'quantity': 1, 'item_price': 9.99}\n      //],\n      content_type: 'eventix',\n      content_name: EventGuidName[1],\n      value: value, //value per event\n      currency: {{evtx currency}} \n\t});\n}\n</script>\n"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "supportDocumentWrite",
+                        "value": "true"
+                    }
+                ],
+                "fingerprint": "1521477188848",
+                "firingTriggerId": [
+                    "37"
+                ],
+                "blockingTriggerId": [
+                    "9"
+                ],
+                "parentFolderId": "7",
+                "tagFiringOption": "ONCE_PER_EVENT"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "tagId": "12",
+                "name": "Facebook ViewContent",
+                "type": "html",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "html",
+                        "value": "<script>\nif (document.location.href.search('gtm-msr.appspot') == -1) {\n  fbq('track', 'ViewContent', {\n    content_name: 'EventName - Pagetype',\n    content_category: 'Pagetype', // ticket //personalDetails //paymentDetails //paid //cancelled //pending\n    content_type: 'EventName' \n  });\n}\n</script>\n"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "supportDocumentWrite",
+                        "value": "false"
+                    }
+                ],
+                "fingerprint": "1518117604150",
+                "firingTriggerId": [
+                    "15"
+                ],
+                "blockingTriggerId": [
+                    "9"
+                ],
+                "tagFiringOption": "ONCE_PER_EVENT"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "tagId": "6",
+                "name": "Google Analytics - Enhanced Ecommerce Interaction",
+                "type": "ua",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "nonInteraction",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "useDebugVersion",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventCategory",
+                        "value": "{{Event}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "trackType",
+                        "value": "TRACK_EVENT"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventAction",
+                        "value": "{{evtx page}}"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "useEcommerceDataLayer",
+                        "value": "true"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "overrideGaSettings",
+                        "value": "true"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "doubleClick",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setTrackerName",
+                        "value": "false"
+                    },
+                    {
+                        "type": "LIST",
+                        "key": "fieldsToSet",
+                        "list": [
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "fieldName",
+                                        "value": "allowLinker"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "value",
+                                        "value": "true"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "fieldName",
+                                        "value": "cookieDomain"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "value",
+                                        "value": "auto"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "enableLinkId",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "enableEcommerce",
+                        "value": "true"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "trackingId",
+                        "value": "{{TicketShop - Google Analytics Tracking ID}}"
+                    }
+                ],
+                "fingerprint": "1489998886245",
+                "firingTriggerId": [
+                    "8"
+                ],
+                "blockingTriggerId": [
+                    "9"
+                ],
+                "parentFolderId": "7",
+                "tagFiringOption": "ONCE_PER_EVENT"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "tagId": "7",
+                "name": "Google Analytics - Interaction",
+                "type": "ua",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "nonInteraction",
+                        "value": "{{evtx interaction-type}}"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "useDebugVersion",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventCategory",
+                        "value": "{{evtx category}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "trackType",
+                        "value": "TRACK_EVENT"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventAction",
+                        "value": "{{evtx action}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventLabel",
+                        "value": "{{evtx label}}"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "overrideGaSettings",
+                        "value": "true"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "doubleClick",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setTrackerName",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventValue",
+                        "value": "{{evtx value}}"
+                    },
+                    {
+                        "type": "LIST",
+                        "key": "fieldsToSet",
+                        "list": [
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "fieldName",
+                                        "value": "cookieDomain"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "value",
+                                        "value": "auto"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "fieldName",
+                                        "value": "userId"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "value",
+                                        "value": "{{evtx userId}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "fieldName",
+                                        "value": "page"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "value",
+                                        "value": "{{evtx page}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "fieldName",
+                                        "value": "allowLinker"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "value",
+                                        "value": "true"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "enableLinkId",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "enableEcommerce",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "trackingId",
+                        "value": "{{TicketShop - Google Analytics Tracking ID}}"
+                    }
+                ],
+                "fingerprint": "1489998886247",
+                "firingTriggerId": [
+                    "12"
+                ],
+                "blockingTriggerId": [
+                    "9"
+                ],
+                "parentFolderId": "7",
+                "tagFiringOption": "ONCE_PER_EVENT"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "tagId": "8",
+                "name": "Google Analytics - Pageviews",
+                "type": "ua",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "overrideGaSettings",
+                        "value": "true"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "doubleClick",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setTrackerName",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "useDebugVersion",
+                        "value": "false"
+                    },
+                    {
+                        "type": "LIST",
+                        "key": "fieldsToSet",
+                        "list": [
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "fieldName",
+                                        "value": "page"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "value",
+                                        "value": "{{evtx page}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "fieldName",
+                                        "value": "userId"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "value",
+                                        "value": "{{evtx userId}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "fieldName",
+                                        "value": "cookieDomain"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "value",
+                                        "value": "auto"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "fieldName",
+                                        "value": "allowLinker"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "value",
+                                        "value": "true"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "useHashAutoLink",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "trackType",
+                        "value": "TRACK_PAGEVIEW"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "decorateFormsAutoLink",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "enableLinkId",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "enableEcommerce",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "trackingId",
+                        "value": "{{TicketShop - Google Analytics Tracking ID}}"
+                    }
+                ],
+                "fingerprint": "1489998886248",
+                "firingTriggerId": [
+                    "15"
+                ],
+                "blockingTriggerId": [
+                    "9"
+                ],
+                "parentFolderId": "7",
+                "tagFiringOption": "ONCE_PER_EVENT"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "tagId": "10",
+                "name": "Mailchimp Subscribe",
+                "type": "html",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "html",
+                        "value": "<script type=\"text/javascript\">\nfunction loadXMLDoc(fname,lname,email) {\n    var xmlhttp = new XMLHttpRequest();\n\n    xmlhttp.onreadystatechange = function() {\n        if (xmlhttp.readyState == XMLHttpRequest.DONE ) {\n           if (xmlhttp.status == 200) {\n               console.log(xmlhttp.responseText);\n           }\n           else if (xmlhttp.status == 400) {\n              console.log('There was an error 400');\n           }\n           else {\n               console.log('something else other than 200 was returned');\n           }\n        }\n    };\n    var url = \"https://eventix.nl/projects/api/mailchimp/{{Mailchimp - ListID}}.php?email=\"+email+\"&fname=\"+fname+\"&lname=\"+lname+\"&listId={{Mailchimp - ListID}}\";\n    console.log(url);\n    xmlhttp.open(\"GET\", url, true);\n    xmlhttp.send();\n}\n\n\n(function() {\n    'use strict';\n\n    waitFor('#orderStatusPage', findOrderDetails);\n\n    function findOrderDetails(element) {\n        var appRoot = angular.element(element);\n        var $scope = appRoot.scope();\n        var order = $scope.vm.order;\n        if(!order) return;\n        console.log(order.firstName, order.lastName, order.email);\n\n        //Uncomment to use  \n        loadXMLDoc(order.firstName, order.lastName, order.email);\n    }\n\n    function waitFor(selector, callback) {\n        var timer = setTimeout(check, 0);\n        return function cancel() {\n            clearTimeout(timer);\n        };\n\n        function check() {\n            var element = document.querySelector(selector);\n            if(!element)\n                timer = setTimeout(check, 500);\n            else\n                callback(element);\n        }\n    }\n})();  \n\n</script>\n"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "supportDocumentWrite",
+                        "value": "false"
+                    }
+                ],
+                "fingerprint": "1516904200790",
+                "firingTriggerId": [
+                    "14"
+                ],
+                "tagFiringOption": "ONCE_PER_EVENT"
+            }
+        ],
+        "trigger": [
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "triggerId": "12",
+                "name": "AddToCart Event",
+                "type": "CUSTOM_EVENT",
+                "customEventFilter": [
+                    {
+                        "type": "MATCH_REGEX",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{_event}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "interaction"
+                            }
+                        ]
+                    }
+                ],
+                "filter": [
+                    {
+                        "type": "CONTAINS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{evtx action}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "Reserve"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1518604935680",
+                "parentFolderId": "7"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "triggerId": "41",
+                "name": "Download page",
+                "type": "CUSTOM_EVENT",
+                "customEventFilter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{_event}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "content-view"
+                            }
+                        ]
+                    }
+                ],
+                "filter": [
+                    {
+                        "type": "CONTAINS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{evtx page}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "download"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1518604910497"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "triggerId": "8",
+                "name": "Enhanced Ecommerce - Interaction",
+                "type": "CUSTOM_EVENT",
+                "customEventFilter": [
+                    {
+                        "type": "MATCH_REGEX",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{_event}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "impression|addToCart|removeFromCart|detail|checkout|purchase"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1489998886224",
+                "parentFolderId": "7"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "triggerId": "9",
+                "name": "Exception to use inside TicketShop",
+                "type": "CUSTOM_EVENT",
+                "customEventFilter": [
+                    {
+                        "type": "MATCH_REGEX",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{_event}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": ".*"
+                            }
+                        ]
+                    }
+                ],
+                "filter": [
+                    {
+                        "type": "MATCH_REGEX",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{Page URL}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "(\\/\\/shop\\..*|\\/\\/order\\..*)"
+                            },
+                            {
+                                "type": "BOOLEAN",
+                                "key": "ignore_case",
+                                "value": "true"
+                            },
+                            {
+                                "type": "BOOLEAN",
+                                "key": "negate",
+                                "value": "true"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1489998886225",
+                "parentFolderId": "7"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "triggerId": "10",
+                "name": "Exception to use outside TicketShop",
+                "type": "CUSTOM_EVENT",
+                "customEventFilter": [
+                    {
+                        "type": "MATCH_REGEX",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{_event}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": ".*"
+                            }
+                        ]
+                    }
+                ],
+                "filter": [
+                    {
+                        "type": "MATCH_REGEX",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{Page URL}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "(\\/\\/shop\\..*|\\/\\/order\\..*)"
+                            },
+                            {
+                                "type": "BOOLEAN",
+                                "key": "ignore_case",
+                                "value": "true"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1489998886225",
+                "parentFolderId": "7"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "triggerId": "11",
+                "name": "History Change",
+                "type": "HISTORY_CHANGE",
+                "fingerprint": "1489998886225",
+                "parentFolderId": "7"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "triggerId": "37",
+                "name": "Interaction EventConversion",
+                "type": "CUSTOM_EVENT",
+                "customEventFilter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{_event}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "interaction"
+                            }
+                        ]
+                    }
+                ],
+                "filter": [
+                    {
+                        "type": "CONTAINS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{evtx category}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "EventConversion"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1518109088794"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "triggerId": "13",
+                "name": "Page View On Load Shop",
+                "type": "PAGEVIEW",
+                "fingerprint": "1518605012272",
+                "parentFolderId": "7"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "triggerId": "44",
+                "name": "Payment Options Page",
+                "type": "CUSTOM_EVENT",
+                "customEventFilter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{_event}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "content-view"
+                            }
+                        ]
+                    }
+                ],
+                "filter": [
+                    {
+                        "type": "CONTAINS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{evtx page}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "/summary"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1518605191048"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "triggerId": "43",
+                "name": "Personal Details Page",
+                "type": "CUSTOM_EVENT",
+                "customEventFilter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{_event}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "content-view"
+                            }
+                        ]
+                    }
+                ],
+                "filter": [
+                    {
+                        "type": "CONTAINS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{evtx page}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "/personalDetails"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1518605131208"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "triggerId": "14",
+                "name": "Purchase page",
+                "type": "CUSTOM_EVENT",
+                "customEventFilter": [
+                    {
+                        "type": "MATCH_REGEX",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{_event}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "purchase"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1518604925639",
+                "parentFolderId": "7"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "triggerId": "42",
+                "name": "Tickets Page",
+                "type": "CUSTOM_EVENT",
+                "customEventFilter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{_event}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "content-view"
+                            }
+                        ]
+                    }
+                ],
+                "filter": [
+                    {
+                        "type": "CONTAINS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{evtx page}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "/tickets"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1518605076324"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "triggerId": "15",
+                "name": "Ticketshop Any Pageview",
+                "type": "CUSTOM_EVENT",
+                "customEventFilter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{_event}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "content-view"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1518604984727",
+                "parentFolderId": "7"
+            }
+        ],
+        "variable": [
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "variableId": "33",
+                "name": "Facebook Page",
+                "type": "c",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "value",
+                        "value": "https://www.facebook.com/xxxxxxxxxxx/"
+                    }
+                ],
+                "fingerprint": "1490874317266"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "variableId": "30",
+                "name": "Mailchimp - API Key",
+                "type": "c",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "value",
+                        "value": "XXXXXXXXXXXXXXXX"
+                    }
+                ],
+                "fingerprint": "1490806206327"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "variableId": "31",
+                "name": "Mailchimp - ListID",
+                "type": "c",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "value",
+                        "value": "XXXXXXXXX"
+                    }
+                ],
+                "fingerprint": "1490806227113"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "variableId": "32",
+                "name": "Mailchimp - Server",
+                "type": "c",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "value",
+                        "value": "XXXX"
+                    }
+                ],
+                "fingerprint": "1490806340572"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "variableId": "1",
+                "name": "TicketShop - Adwords Conversion ID",
+                "type": "c",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "value",
+                        "value": "XXXXXXX"
+                    }
+                ],
+                "fingerprint": "1489998886227"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "variableId": "2",
+                "name": "TicketShop - Adwords Conversion Label",
+                "type": "c",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "value",
+                        "value": "XXXXXXXXXXXXXXXXXX"
+                    }
+                ],
+                "fingerprint": "1489998886227"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "variableId": "3",
+                "name": "TicketShop - Facebook Tracking Pixel ID",
+                "type": "c",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "value",
+                        "value": "xxxxxxxxxxxx"
+                    }
+                ],
+                "fingerprint": "1490805906452",
+                "parentFolderId": "7"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "variableId": "4",
+                "name": "TicketShop - Google Analytics Tracking ID",
+                "type": "c",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "value",
+                        "value": "XX-XXXXXXX-X"
+                    }
+                ],
+                "fingerprint": "1489998886229",
+                "parentFolderId": "7"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "variableId": "36",
+                "name": "addToCart_price",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "ecommerce.add.products.0.price"
+                    }
+                ],
+                "fingerprint": "1519213646518"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "variableId": "35",
+                "name": "addToCart_productName",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "ecommerce.add.products.0.name"
+                    }
+                ],
+                "fingerprint": "1519213401379"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "variableId": "5",
+                "name": "element",
+                "type": "aev",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "varType",
+                        "value": "ELEMENT"
+                    }
+                ],
+                "fingerprint": "1489998886229"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "variableId": "6",
+                "name": "element classes",
+                "type": "aev",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "varType",
+                        "value": "CLASSES"
+                    }
+                ],
+                "fingerprint": "1489998886230"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "variableId": "7",
+                "name": "element id",
+                "type": "aev",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "varType",
+                        "value": "ID"
+                    }
+                ],
+                "fingerprint": "1489998886230"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "variableId": "8",
+                "name": "element target",
+                "type": "aev",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "varType",
+                        "value": "TARGET"
+                    }
+                ],
+                "fingerprint": "1489998886230"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "variableId": "9",
+                "name": "element text",
+                "type": "aev",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "varType",
+                        "value": "TEXT"
+                    }
+                ],
+                "fingerprint": "1489998886231"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "variableId": "10",
+                "name": "element url",
+                "type": "aev",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "varType",
+                        "value": "URL"
+                    }
+                ],
+                "fingerprint": "1489998886231"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "variableId": "11",
+                "name": "event",
+                "type": "e",
+                "fingerprint": "1489998886231"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "variableId": "12",
+                "name": "evtx action",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "action"
+                    }
+                ],
+                "fingerprint": "1489998886232",
+                "parentFolderId": "7"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "variableId": "13",
+                "name": "evtx category",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "category"
+                    }
+                ],
+                "fingerprint": "1489998886233",
+                "parentFolderId": "7"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "variableId": "37",
+                "name": "evtx conversionValue",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "value"
+                    }
+                ],
+                "fingerprint": "1519420130124"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "variableId": "14",
+                "name": "evtx currency",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "true"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "defaultValue",
+                        "value": "EUR"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "orderConversions.currency"
+                    }
+                ],
+                "fingerprint": "1519420731064"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "variableId": "34",
+                "name": "evtx eventGuid",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "label"
+                    }
+                ],
+                "fingerprint": "1518109505150"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "variableId": "38",
+                "name": "evtx eventGuid-Name",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "label"
+                    }
+                ],
+                "fingerprint": "1519420138164"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "variableId": "15",
+                "name": "evtx interaction-type",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "interaction-type"
+                    }
+                ],
+                "fingerprint": "1489998886234",
+                "parentFolderId": "7"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "variableId": "16",
+                "name": "evtx label",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "label"
+                    }
+                ],
+                "fingerprint": "1489998886235",
+                "parentFolderId": "7"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "variableId": "17",
+                "name": "evtx page",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "content-name"
+                    }
+                ],
+                "fingerprint": "1489998886236",
+                "parentFolderId": "7"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "variableId": "18",
+                "name": "evtx userId",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "userId"
+                    }
+                ],
+                "fingerprint": "1489998886236",
+                "parentFolderId": "7"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "variableId": "19",
+                "name": "evtx value",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "value"
+                    }
+                ],
+                "fingerprint": "1489998886237",
+                "parentFolderId": "7"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "variableId": "20",
+                "name": "history change source",
+                "type": "aev",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "varType",
+                        "value": "HISTORY_CHANGE_SOURCE"
+                    }
+                ],
+                "fingerprint": "1489998886237"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "variableId": "21",
+                "name": "history new state",
+                "type": "aev",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "varType",
+                        "value": "HISTORY_NEW_STATE"
+                    }
+                ],
+                "fingerprint": "1489998886238"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "variableId": "22",
+                "name": "history new url fragment",
+                "type": "aev",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "varType",
+                        "value": "HISTORY_NEW_URL_FRAGMENT"
+                    }
+                ],
+                "fingerprint": "1489998886238"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "variableId": "23",
+                "name": "history old state",
+                "type": "aev",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "varType",
+                        "value": "HISTORY_OLD_STATE"
+                    }
+                ],
+                "fingerprint": "1489998886238"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "variableId": "24",
+                "name": "history old url fragment",
+                "type": "aev",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "varType",
+                        "value": "HISTORY_OLD_URL_FRAGMENT"
+                    }
+                ],
+                "fingerprint": "1489998886239"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "variableId": "25",
+                "name": "referrer",
+                "type": "f",
+                "fingerprint": "1489998886239"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "variableId": "26",
+                "name": "sessionLinker",
+                "type": "jsm",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "javascript",
+                        "value": "function() {\n  return function() {\n    try { \n      var gobj = window[window.GoogleAnalyticsObject];\n      var iframe = document.querySelector('#myIframe');\n      var tracker, linker;\n      if (gobj) {\n        tracker = gobj.getAll()[0];\n        linker = new window.gaplugins.Linker(tracker);\n        iframe.src = linker.decorate(iframe.src);\n      }\n    } catch(e) {}\n  }\n}\n"
+                    }
+                ],
+                "fingerprint": "1489998886239"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "variableId": "27",
+                "name": "url",
+                "type": "u",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "component",
+                        "value": "URL"
+                    }
+                ],
+                "fingerprint": "1489998886240"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "variableId": "28",
+                "name": "url hostname",
+                "type": "u",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "component",
+                        "value": "HOST"
+                    }
+                ],
+                "fingerprint": "1489998886240"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "variableId": "29",
+                "name": "url path",
+                "type": "u",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "component",
+                        "value": "PATH"
+                    }
+                ],
+                "fingerprint": "1489998886240"
+            }
+        ],
+        "folder": [
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "folderId": "7",
+                "name": "TicketShop",
+                "fingerprint": "1489998886223"
+            }
+        ],
+        "builtInVariable": [
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "type": "PAGE_URL",
+                "name": "Page URL"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "type": "PAGE_HOSTNAME",
+                "name": "Page Hostname"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "type": "PAGE_PATH",
+                "name": "Page Path"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "type": "REFERRER",
+                "name": "Referrer"
+            },
+            {
+                "accountId": "186990263",
+                "containerId": "6523248",
+                "type": "EVENT",
+                "name": "Event"
+            }
+        ],
+        "fingerprint": "0",
+        "tagManagerUrl": "https://tagmanager.google.com/#/versions/accounts/186990263/containers/6523248/versions/0?apiLink=version"
+    }
+}
